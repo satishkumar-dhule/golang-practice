@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 func add(a int, b int) int {
@@ -29,6 +30,14 @@ func doublePtr(a *int) {
 	*a *= 2
 }
 
+func sqrt(a float64) (float64, error) {
+
+	if a < 1 {
+
+		return 0.0, fmt.Errorf("square root of negative value : %v", a)
+	}
+	return math.Sqrt(a), nil
+}
 func main() {
 
 	val := add(1, 2)
@@ -50,4 +59,6 @@ func main() {
 	doublePtr(&i)
 	fmt.Println(i) //change in value as i was passed by ref
 
+	srt, err := sqrt(-10)
+	fmt.Println(srt, err)
 }
