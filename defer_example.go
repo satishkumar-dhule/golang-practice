@@ -12,6 +12,7 @@ func cleanup(s string) {
 func work() {
 
 	defer cleanup("A")
+	defer cleanup("B")
 
 	fmt.Println("Working")
 }
